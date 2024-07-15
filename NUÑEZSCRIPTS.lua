@@ -1,6 +1,3 @@
--- edited by mstudio45 | original by https://v3rmillion.net/member.php?action=profile&uid=1802731 
--- https://v3rmillion.net/showthread.php?tid=1200475
-
 local NUNEZSCRIPTS_START_TIME = os.time()
 local customnotifid = "10469938989"
 local oldcustomnotifid = "4590657391"
@@ -192,7 +189,6 @@ function PathModule.new(char, goal, agentParameters, jumpingAllowed, offset)
 	end
 end
 
---local library = loadstring(game:HttpGet(--[['https://pastebin.com/raw/vPWzQEC8'--]]""))()
 local isMobile = false
 local mobiletoggles,mobiletoggleerr=pcall(function()
 	local platform = game:GetService("UserInputService"):GetPlatform()
@@ -200,29 +196,16 @@ local mobiletoggles,mobiletoggleerr=pcall(function()
 end)
 
 local Library = nil
---if mobiletoggles then
 if isMobile == true then
-	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/uilibs/Mobile.lua?" .. tostring(math.random(0, 9999999)), true))()
+	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/uilibs/Mobile.lua"))()
 else
 	Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 end
---else
---	Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
---end
 
 local currentver = "1.8"
 local gui_data = nil
-local s,e = pcall(function()
-	gui_data = game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/gui_data.json"), true)
-	gui_data = game:GetService("HttpService"):JSONDecode(gui_data)
-end)
-if e then
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "Failed to get script data.", 10)
-end
 
-if NUNEZSCRIPTSLOADED == true then warnmessage("NUÑEZ SCRIPTS v"..currentver, "GUI already loaded!", "", 10) return end
-if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then 
-	--warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to join a game to run this script.", 10) 
+if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then
 	confirmnotification("NUÑEZ SCRIPTS v"..currentver, "Do you want to join a game?", 15, function(state)
 		if state == true then
 			task.spawn(function()

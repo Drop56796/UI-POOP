@@ -202,11 +202,11 @@ else
 	Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 end
 
-local currentver = "1.8"
+local currentver = "2.0.5"
 local gui_data = nil
 
 if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then
-	confirmnotification("NUÑEZ SCRIPTS v"..currentver, "Do you want to join a game?", 15, function(state)
+	confirmnotification("微山旧版 v"..currentver, "Do you want to join a game?", 15, function(state)
 		if state == true then
 			task.spawn(function()
 				loadstring(game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/joinsolo.lua?" .. tostring(math.random(0, 9999999))), true))()
@@ -216,12 +216,12 @@ if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then
 	return
 end
 if game.PlaceId ~= 6839171747 and game.PlaceId ~= 6516141723 then 
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to join DOORS to run this script.", 10) 
+	oldwarnmessage("微山旧版 v"..currentver, "You need to join DOORS to run this script.", 10) 
 	return
 end
 if gui_data ~= nil then
 	if currentver ~= gui_data.ver or gui_data.ver ~= currentver then
-		warnmessage("NUÑEZ SCRIPTS v"..currentver, "You are using an outdated version of this script", "Loading latest version.", 10) 
+		warnmessage("微山旧版 v"..currentver, "You are using an outdated version of this script", "Loading latest version.", 10) 
 		loadstring(game:HttpGet((gui_data.loadstring.."?" .. tostring(math.random(0, 9999999)) ),true))()
 		return
 	else
@@ -229,7 +229,7 @@ if gui_data ~= nil then
 	end
 end
 pcall(function() getgenv().NUNEZSCRIPTSLOADED = true end)
-normalmessage("NUÑEZ SCRIPTS v"..currentver, "Loading script...", "", 2)
+normalmessage("微山旧版 v"..currentver, "Loading...", "", 2)
 if gui_data ~= nil then
 	oldnormalmessage("INFO", gui_data.changelog, 20)
 end
@@ -671,18 +671,18 @@ end
 
 
 local GUIWindow = Library:CreateWindow({
-	Name = "NUÑEZ SCRIPTS v".. currentver,
+	Name = "微山旧版{MrWhite} V".. currentver,
 	Themeable = false
 })
 
 local GUI = GUIWindow:CreateTab({
-	Name = "Main"
+	Name = "主页"
 })
 local TrollingTabee = GUIWindow:CreateTab({
-	Name = "Trolling"
+	Name = "恶搞"
 })
 local window_Trolling = TrollingTabee:CreateSection({
-	Name = "Trolling"
+	Name = "恶搞"
 })
 local scriptLoaded = false
 -- Config system
@@ -713,7 +713,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	reloadList(nil)
 
 	local CONFIGTAB = GUIWindow:CreateTab({
-		Name = "Configs"
+		Name = "配置"
 	})
 	local CONFIG = CONFIGTAB:CreateSection({
 		Name = "Load"
@@ -914,15 +914,15 @@ end
 
 --local window_player_tab = GUI:CreateTab({ Name = "Player" })
 local window_player = GUI:CreateSection({
-	Name = "Player"
+	Name = "玩家"
 })
 --local window_esp_tab = GUI:CreateTab({ Name = "ESP" })
 local window_esp = GUI:CreateSection({
-	Name = "ESP"
+	Name = "esp"
 })
 --local window_entities_tab = GUI:CreateTab({ Name = "Entities" })
 local window_entities = GUI:CreateSection({
-	Name = "Entities"
+	Name = "Entities esp"
 })
 --local window_roomsdoors_tab = GUI:CreateTab({ Name = "Rooms (DOORS)" })
 local window_roomsdoors = GUI:CreateSection({
@@ -1009,7 +1009,7 @@ newnotificationsettings:AddButton({
 newnotificationsettings:AddButton({
 	Name = "Test Notification",
 	Callback = function()
-		normalmessage("NUÑEZ SCRIPTS v"..currentver, "This script was made by Nuñez!", "Hey.", 5, nil, "TEST NOTIFICATION")
+		normalmessage("微山旧版 v"..currentver, "This script was made by mrWhite", "Hey.", 5, nil, "TEST NOTIFICATION")
 	end
 })
 
@@ -1073,24 +1073,22 @@ oldnotificationsettings:AddButton({
 oldnotificationsettings:AddButton({
 	Name = "Test Notification",
 	Callback = function()
-		oldnormalmessage("NUÑEZ SCRIPTS v"..currentver.." [TEST]", "This is a test!", 5)
+		oldnormalmessage("微山旧版 v"..currentver.." [TEST]", "This is a test!", 5)
 	end
 })
 
-local window_credits_tab = GUIWindow:CreateTab({ Name = "Credits" })
+local window_credits_tab = GUIWindow:CreateTab({ Name = "来源" })
 local window_credits = window_credits_tab:CreateSection({
-	Name = "Credits"
+	Name = "来源"
 })
-window_credits:AddLabel({ Name = "Original V3RM post: 1200475" })
-window_credits:AddLabel({ Name = "Original by:" });window_credits:AddLabel({ Name = "Nuñez" })
-window_credits:AddLabel({ Name = "Edited by: Nuñez (DarknessVarious YT)" })
-window_credits:AddLabel({ Name = "UI Library suggestion:" });window_credits:AddLabel({ Name = "actu#2004" })
-window_credits:AddLabel({ Name = "Discord Invite: a6Ttgs2gBr" })
+window_credits:AddLabel({ Name = "原作者:微山Team" })
+window_credits:AddLabel({ Name = "修复By:MrWhite" });
+window_credits:AddLabel({ Name = "复制作者QQ号" })
 if RequestFunction then
 	window_credits:AddButton({
-		Name = "Join NUÑEZ SCRIPTS\nDiscord Server",
+		Name = "Copy",
 		Callback = function()
-			JoinDiscord("a6Ttgs2gBr")
+			setclipboard("3756646428")
 		end
 	})
 end
@@ -1098,7 +1096,7 @@ end
 task.spawn(function()
 	--	repeat task.wait(1) until flags.anticheatbypass == true
 	local nocliptoggle = window_player:AddToggle({
-		Name = "Noclip",
+		Name = "穿墙",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.noclip = val
@@ -1127,7 +1125,7 @@ end)
 
 
 local clientglowbtn = window_player:AddToggle({
-	Name = "Client Glow",
+	Name = "客户端发光",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.light = val
@@ -1146,7 +1144,7 @@ local clientglowbtn = window_player:AddToggle({
 buttons.light = clientglowbtn
 
 local cfullbrightbtn = window_player:AddToggle({
-	Name = "Fullbright",
+	Name = "高亮",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.fullbright = val
@@ -1183,7 +1181,7 @@ buttons.fullbright = cfullbrightbtn
 
 if fireproximityprompt then
 	local instausebrn = window_player:AddToggle({
-		Name = "Instant Use",
+		Name = "即时使用",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.instapp = val
@@ -1199,11 +1197,11 @@ if fireproximityprompt then
 	})
 	buttons.instapp = instausebrn
 else
-	warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'instant use'.", 7)
+	warnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'instant use'.", 7)
 end
 
 local walkspeedslider = window_player:AddSlider({
-	Name = "Walkspeed",
+	Name = "速度",
 	Value = 16,
 	Min = 16,
 	Max = 22,
@@ -1217,7 +1215,7 @@ local walkspeedslider = window_player:AddSlider({
 })
 buttons.speed = walkspeedslider
 local walkspeedtglbtn = window_player:AddToggle({
-	Name = "Toggle Walkspeed",
+	Name = "启用",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.walkspeedtoggle = val
@@ -1231,7 +1229,7 @@ buttons.walkspeedtoggle = walkspeedtglbtn
 window_player:AddButton({
 	Name = "Reset Character",
 	Callback = function()
-		confirmnotification("NUÑEZ SCRIPTS v"..currentver, "Are you sure to reset your character?", 15, function(state)
+		confirmnotification("微山旧版 v"..currentver, "Are you sure to reset your character?", 15, function(state)
 			if state == true then
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
@@ -1239,19 +1237,8 @@ window_player:AddButton({
 	end
 })
 
---[[window_player.label("\nif you use it anyone will be able to join your game and expose you of exploiting",32)
-window_player.button("rejoin revive", function()
-	if #game:GetService("Players"):GetPlayers() <= 1 or #game:GetService("Players"):GetPlayers() == 0 then
-		game:GetService("Players").LocalPlayer:Kick("\nRejoining...")
-		task.wait()
-		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-	else
-		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer)
-	end
-end)--]]
-
 local camfovslider = window_player:AddSlider({
-	Name = "FOV",
+	Name = "视角",
 	Value = 70,
 	Min = 50,
 	Max = 120,
@@ -1262,7 +1249,7 @@ local camfovslider = window_player:AddSlider({
 })
 buttons.camfov = camfovslider
 local togglefovbrn = window_player:AddToggle({
-	Name = "Toggle FOV",
+	Name = "启用",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.camfovtoggle = val
@@ -1298,7 +1285,7 @@ task.spawn(function()
 end)
 
 window_esp:AddButton({
-	Name = "Clear ESP",
+	Name = "清除ESP",
 	Callback = function()
 		pcall(function()
 			for _,e in pairs(esptable) do
@@ -1318,7 +1305,7 @@ if Drawing then
 		window_esp:AddLabel({Name = "Tracers only work with 70 FOV."})
 	end
 	local traceresp = window_esp:AddToggle({
-		Name = "Tracers",
+		Name = "ESP线",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.tracers = val
@@ -1328,7 +1315,7 @@ if Drawing then
 end
 
 local espdoorsbtn = window_esp:AddToggle({
-	Name = "Door ESP",
+	Name = "门ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espdoors = val
@@ -1382,8 +1369,8 @@ local espdoorsbtn = window_esp:AddToggle({
 	end
 })
 buttons.espdoors = espdoorsbtn
---[[local fakeespdoorsbtn = window_esp:AddToggle({
-	Name = "Fake Door (Dupe) ESP",
+local fakeespdoorsbtn = window_esp:AddToggle({
+	Name = "假门ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.fakeespdoors = val
@@ -1428,9 +1415,9 @@ buttons.espdoors = espdoorsbtn
 		end
 	end
 })
-buttons.fakeespdoors = fakeespdoorsbtn--]]
+buttons.fakeespdoors = fakeespdoorsbtn
 local espkeysbtn = window_esp:AddToggle({
-	Name = "Key/Lever ESP",
+	Name = "拉杆/钥匙 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espkeys = val
@@ -1519,7 +1506,7 @@ local espkeysbtn = window_esp:AddToggle({
 })
 buttons.espkeys = espkeysbtn
 local espitemsbtn = window_esp:AddToggle({
-	Name = "Item ESP",
+	Name = "物品ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espitems = val
@@ -1588,7 +1575,7 @@ local espitemsbtn = window_esp:AddToggle({
 })
 buttons.espitems = espitemsbtn
 local espbooksbtn = window_esp:AddToggle({
-	Name = "Book/Breaker ESP",
+	Name = "书/电力盒 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espbooks = val
@@ -1658,7 +1645,7 @@ local espbooksbtn = window_esp:AddToggle({
 buttons.espbooks = espbooksbtn
 local entitynames = {"RushMoving","AmbushMoving","Eyes","Snare","A60","A120"}
 local esprusbtn = window_esp:AddToggle({
-	Name = "Entity ESP",
+	Name = "实体 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.esprush = val
@@ -1738,7 +1725,7 @@ local esprusbtn = window_esp:AddToggle({
 })
 buttons.esprush = esprusbtn
 local esplockerbrn = window_esp:AddToggle({
-	Name = "Wardrobe/Locker ESP",
+	Name = "柜子/储物柜 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.esplocker = val
@@ -1829,7 +1816,7 @@ local esplockerbrn = window_esp:AddToggle({
 buttons.esplocker = esplockerbrn
 
 local espchesbtn = window_esp:AddToggle({
-	Name = "Chest ESP",
+	Name = "箱子 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espchest = val
@@ -1912,7 +1899,7 @@ local espchesbtn = window_esp:AddToggle({
 })
 buttons.espchest = espchesbtn
 local esphumansbtn = window_esp:AddToggle({
-	Name = "Player ESP",
+	Name = "玩家 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.esphumans = val
@@ -1970,7 +1957,7 @@ local esphumansbtn = window_esp:AddToggle({
 })
 buttons.esphumans = esphumansbtn
 local espgoldbtn = window_esp:AddToggle({
-	Name = "Gold ESP",
+	Name = "金币 ESP",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.espgold = val
@@ -2041,7 +2028,7 @@ local espgoldbtn = window_esp:AddToggle({
 })
 buttons.espgold = espgoldbtn
 local goldespvaluebtn = window_esp:AddSlider({
-	Name = "Minimum Gold for Gold ESP",
+	Name = "黄金的最低ESP",
 	Value = 5,
 	Min = 5,
 	Max = 150,
@@ -2053,7 +2040,7 @@ local goldespvaluebtn = window_esp:AddSlider({
 buttons.goldespvalue = goldespvaluebtn
 
 local hintrushbtn = window_entities:AddToggle({
-	Name = "Notify Entities",
+	Name = "警告提示",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.hintrush = val
@@ -2061,7 +2048,7 @@ local hintrushbtn = window_entities:AddToggle({
 })
 buttons.hintrush = hintrushbtn
 local predictentitiesbtn = window_entities:AddToggle({
-	Name = "Event Prediction",
+	Name = "事件提示",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.predictentities = val
@@ -2078,7 +2065,7 @@ game:GetService("ReplicatedStorage").GameData.LatestRoom.Changed:Connect(functio
 end)
 
 local noeyesdamagebtn = window_entities:AddToggle({
-	Name = "No Eyes Damage",
+	Name = "Eyes没伤害",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.noeyesdamage = val
@@ -2087,7 +2074,7 @@ local noeyesdamagebtn = window_entities:AddToggle({
 buttons.noeyesdamage = noeyesdamagebtn
 
 local noseekbtn = window_entities:AddToggle({
-	Name = "Disable Seek chase",
+	Name = "Seek追逐战取消",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.noseek = val
@@ -2111,7 +2098,7 @@ buttons.noseek = noseekbtn
 
 local ScreechModule = plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules:FindFirstChild("Screech")
 local noscreechbtn = window_entities:AddToggle({
-	Name = "Harmless Screech",
+	Name = "无害Screech",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.noscreech = val
@@ -2128,7 +2115,7 @@ buttons.noscreech = noscreechbtn
 
 local SpiderJumpscareModule = plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules:FindFirstChild("SpiderJumpscare")
 local notimothybtn = window_entities:AddToggle({
-	Name = "No Timothy (Spider) Jumpscare",
+	Name = "神经(Spider)没跳杀",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.notimothy = val
@@ -2144,11 +2131,11 @@ local notimothybtn = window_entities:AddToggle({
 buttons.notimothy = notimothybtn
 
 if hookmetamethod and newcclosure and getnamecallmethod then
-	window_entities:AddLabel({ Name = "Do not click when playing the" })
-	window_entities:AddLabel({ Name = "heartbeat minigame if you have" })
-	window_entities:AddLabel({ Name = "'always win heartbeat' on!" })
+	window_entities:AddLabel({ Name = "心跳游戏永远获胜" })
+	window_entities:AddLabel({ Name = "孩子你是最棒的" })
+	window_entities:AddLabel({ Name = "你无敌了" })
 	local heartbeatwinbtn = window_entities:AddToggle({
-		Name = "Always win Heartbeat minigame",
+		Name = "心跳游戏永远获胜",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.heartbeatwin = val
@@ -2169,7 +2156,7 @@ if hookmetamethod and newcclosure and getnamecallmethod then
 		return old(self,...)
 	end))
 else
-	warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have hookmetamethod and newcclosure and getnamecallmethod functions for 'always win heartbeat'.", 7)
+	warnmessage("微山旧版 v"..currentver, "You need to have hookmetamethod and newcclosure and getnamecallmethod functions for 'always win heartbeat'.", 7)
 end
 
 --[[local avoidrushambushbtn = window_entities:AddToggle({
@@ -2220,7 +2207,7 @@ workspace.ChildAdded:Connect(function(inst)
 								eyesspawned = false
 							end
 						end)
-						warnmessage("ENTITIES", inst.Name:gsub("Moving","").." spawned.", "Don't look at it!", 10, "10865377903")
+						warnmessage("ENTITIES", inst.Name:gsub("Moving","").."is spawned.", "Don't look at it!", 10, "10865377903")
 					else
 						warnmessage("ENTITIES", inst.Name:gsub("Moving","").." is coming.", "Hide!", 0, "0", inst)
 					end
@@ -2307,7 +2294,7 @@ workspace.ChildAdded:Connect(function(inst)
 end)
 
 local noseekarmsfirebtn = window_roomsdoors:AddToggle({
-	Name = "No Seek Arms & Fire",
+	Name = "禁用火焰和Seek武器",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.noseekarmsfire = val
@@ -2324,10 +2311,10 @@ game:GetService("ReplicatedStorage").GameData.LatestRoom:GetPropertyChangedSigna
 end)
 buttons.noseekarmsfire = noseekarmsfirebtn
 
-window_roomsdoors:AddLabel({ Name = "'Skip Room' functions doesn't work\nwithout an anticheat bypass."})
+window_roomsdoors:AddLabel({ Name = "'跳过房间。' functions doesn't work\nHow to bypass"})
 if fireproximityprompt then
 	window_roomsdoors:AddButton({
-		Name = "Skip Current Room",
+		Name = "跳过房间",
 		Callback = function()
 			pcall(function()
 				local key = false
@@ -2371,12 +2358,12 @@ if fireproximityprompt then
 		end
 	})
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)	
+	oldwarnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)	
 end
 
 window_roomsdoors:AddLabel({ Name = "You need to be close to the\nlibrary exit for this to work."})
 window_roomsdoors:AddButton({
-	Name = "Skip Room 50",
+	Name = "跳房50门",
 	Callback = function()
 		pcall(function()
 			if LatestRoom.Value == 50 then
@@ -2389,7 +2376,7 @@ window_roomsdoors:AddButton({
 
 if fireproximityprompt then
 	local autoskiproomsbtn = window_roomsdoors:AddToggle({
-		Name = "Auto Room-Skip",
+		Name = "自动跳过房间",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.autoskiprooms = val
@@ -2442,7 +2429,7 @@ if fireproximityprompt then
 	})
 	buttons.autoskiprooms = autoskiproomsbtn
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)
+	oldwarnmessage("微删旧版" v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)
 end
 
 local elevatorbreakerbox = false
@@ -2463,7 +2450,7 @@ window_roomsdoors:AddButton({
 })
 
 local nogatesbtn = window_misc:AddToggle({
-	Name = "Delete Gates",
+	Name = "卸载Gates",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.nogates = val
@@ -2513,7 +2500,7 @@ local nogatesbtn = window_misc:AddToggle({
 })
 buttons.nogates = nogatesbtn
 local nopuzzlebtn = window_misc:AddToggle({
-	Name = "Delete Puzzle Doors",
+	Name = "删除拼图门",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.nopuzzle = val
@@ -2566,7 +2553,7 @@ local nopuzzlebtn = window_misc:AddToggle({
 })
 buttons.nopuzzle = nopuzzlebtn
 local noskeledoorsbtn = window_misc:AddToggle({
-	Name = "Delete Skeleten Doors",
+	Name = "删除骷髅门",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.noskeledoors = val
@@ -2595,7 +2582,7 @@ local noskeledoorsbtn = window_misc:AddToggle({
 })
 buttons.noskeledoors = noskeledoorsbtn
 local getcodebtn = window_misc:AddToggle({
-	Name = "Auto Library Code",
+	Name = "自动图书馆密码",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.getcode = val
@@ -2656,7 +2643,7 @@ local getcodebtn = window_misc:AddToggle({
 })
 buttons.getcode = getcodebtn
 local roomsnolockbtn = window_misc:AddToggle({
-	Name = "A-000 Door No Locks",
+	Name = "A-000无锁",
 	Value = false,
 	Callback = function(val, oldval)
 		flags.roomsnolock = val
@@ -2693,7 +2680,7 @@ buttons.roomsnolock = roomsnolockbtn
 
 if fireproximityprompt then
 	local draweraurabtn = window_misc:AddToggle({
-		Name = "Loot Aura",
+		Name = "自动点击",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.draweraura = val
@@ -3047,6 +3034,7 @@ if fireproximityprompt then
 						setup(room) 
 					end
 				end
+				
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 
 				repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.draweraura
@@ -3056,12 +3044,12 @@ if fireproximityprompt then
 	})
 	buttons.draweraura = draweraurabtn
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'loot aura'.", 7)
+	oldwarnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'loot aura'.", 7)
 end
 
 if fireproximityprompt then
 	local bookcollecterbtn = window_misc:AddToggle({
-		Name = "Book Aura",
+		Name = "自动拿书",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.bookcollecter = val
@@ -3134,9 +3122,7 @@ if fireproximityprompt then
 							setup(room) 
 						end
 					end
-					--	if workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:FindFirstChild("Assets") then
 					setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
-					--	end
 
 					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.bookcollecter
 					addconnect:Disconnect()
@@ -3146,12 +3132,12 @@ if fireproximityprompt then
 	})
 	buttons.bookcollecter = bookcollecterbtn
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
+	oldwarnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
 end
 
 if fireproximityprompt then
 	local breakercollecterbtn = window_misc:AddToggle({
-		Name = "Breaker Aura",
+		Name = "自动拿电力盒",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.breakercollecter = val
@@ -3236,12 +3222,12 @@ if fireproximityprompt then
 	})
 	buttons.breakercollecter = breakercollecterbtn
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
+	oldwarnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
 end
 
 if fireproximityprompt then
 	local autopullleverbtn = window_misc:AddToggle({
-		Name = "Lever Aura",
+		Name = "自动拉杆",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.autopulllever = val
@@ -3325,12 +3311,12 @@ if fireproximityprompt then
 	})
 	buttons.autopulllever = autopullleverbtn
 else
-	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'lever aura'.", 7)
+	oldwarnmessage("微山旧版 v"..currentver, "You need to have fireproximityprompt function for 'lever aura'.", 7)
 end
 
 if #game.Players:GetChildren() <= 1 or #game.Players:GetChildren() == 0 then
 	window_misc:AddButton({
-		Name = "Instant leave",
+		Name = "离开",
 		Callback = function()
 			confirmnotification("CONFIRM", "Are you sure you want to leave?", 15, function(state)
 				if state == true then
@@ -3352,7 +3338,7 @@ window_anticheatbyppasses:AddLabel({ Name = " only do this in multiplayer." })
 window_anticheatbyppasses:AddLabel({ Name = "If you use this in rooms you" })
 window_anticheatbyppasses:AddLabel({ Name = " will NOT get the a-1000 badge!" })
 window_anticheatbyppasses:AddButton({
-	Name = "Method 1",
+	Name = "方法A1000",
 	Callback = function()
 		confirmnotification("AC BYPASS", "Are you sure you want to bypass anticheat with method 1?", 15, function(state)
 			if state == true then
@@ -3374,7 +3360,7 @@ window_anticheatbyppasses:AddButton({
 if syn then
 	if syn.queue_on_teleport then
 		window_experimentals:AddButton({
-			Name = "Start a new solo run",
+			Name = "开始新的单人游戏",
 			Callback = function()
 				syn.queue_on_teleport([[
 					game.Loaded:Wait()
@@ -3386,7 +3372,7 @@ if syn then
 	end--]]
 elseif queue_on_teleport then
 	window_experimentals:AddButton({
-		Name = "Start a new solo run",
+		Name = "开始新的单人游戏",
 		Callback = function()
 			queue_on_teleport([[
 				game.Loaded:Wait()
@@ -3403,7 +3389,7 @@ local Wardrobe = nil
 local CurrentWardrobe = nil
 
 local window_rooms = GUI:CreateSection({
-	Name = "The Rooms"
+	Name = "房间"
 })
 
 if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value == "Rooms" then
@@ -3438,7 +3424,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 
 	local A90Module = plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules:FindFirstChild("A90")
 	local noa90btn = window_rooms:AddToggle({
-		Name = "Harmless A-90",
+		Name = "没伤害的A90",
 		Callback = function(val, oldval)
 			flags.noa90 = val
 
@@ -3520,7 +3506,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 
 	local autoa1000 = nil
 	autoa1000 = window_rooms:AddToggle({
-		Name = "Auto A-1000",
+		Name = "自动a1000",
 		Value = false,
 		Callback = function(val, oldval)
 			if flags.noa90 == false then noa90btn:Set(true);oldnormalmessage("AUTO A-1000", "Enabled Harmless A90", 5) end
@@ -3656,7 +3642,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 	})
 	buttons.autorooms = autoa1000
 	local autorooms_debugbtn = window_rooms:AddToggle({
-		Name = "Auto A-1000 - Debug Notifications",
+		Name = "自动a1000 - 修改提示",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.autorooms_debug = val
@@ -3664,7 +3650,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 	})
 	buttons.autorooms_debug = autorooms_debugbtn
 	local autoa1000blockcontrols = window_rooms:AddToggle({
-		Name = "Auto A-1000 - Block Controls",
+		Name = "自动a1000 - 阻止控件",
 		Value = false,
 		Callback = function(val, oldval)
 			flags.autorooms_blockcontrols = val
@@ -3693,7 +3679,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 end
 
 if inRooms == false then
-	window_rooms:AddLabel({ Name = "You need to be in Rooms for this\nsection." })
+	window_rooms:AddLabel({ Name = "You need to be in Rooms for this\nsectin" })
 end
 
 local dropdownTrolling = window_Trolling:AddDropdown({
@@ -3806,16 +3792,16 @@ function closegui()
 	pcall(function() getgenv().NUNEZSCRIPTSLOADED = false;NUNEZSCRIPTSLOADED = false end)
 
 	task.wait(.1)
-	normalmessage("NUÑEZ SCRIPTS v"..currentver, "GUI closed!")
+	normalmessage("微山旧版 v"..currentver, "GUI closed!")
 end
 window_guisettings:AddButton({
-	Name = "Close Gui",
+	Name = "关闭UI",
 	Callback = function()
 		Library.unload()
 	end
 })
 window_guisettings:AddButton({
-	Name = "Reload Gui",
+	Name = "重新打开UI",
 	Callback = function()
 		task.spawn(function()
 			repeat task.wait(.1) until NUNEZSCRIPTSLOADED == false or NUNEZSCRIPTSLOADED == nil
@@ -3920,7 +3906,7 @@ end)
 
 scriptLoaded = true
 normalmessage(
-	"NUÑEZ SCRIPTS v"..currentver, "Script loaded!", 
-	"Took "..(os.time() - NUNEZSCRIPTS_START_TIME).."ms.", 
+	"微山旧版 v"..currentver, "Script loaded!", 
+	"开启花费时间: "..(os.time() - NUNEZSCRIPTS_START_TIME).."ms.", 
 	5
 )

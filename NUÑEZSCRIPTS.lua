@@ -202,7 +202,7 @@ else
 	Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 end
 
-local currentver = "1.8"
+local currentver = "2.0.5"
 local gui_data = nil
 
 if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then
@@ -671,18 +671,18 @@ end
 
 
 local GUIWindow = Library:CreateWindow({
-	Name = "NUÑEZ SCRIPTS v".. currentver,
+	Name = "微山旧版 v".. currentver,
 	Themeable = false
 })
 
 local GUI = GUIWindow:CreateTab({
-	Name = "Main"
+	Name = "主功能"
 })
 local TrollingTabee = GUIWindow:CreateTab({
-	Name = "Trolling"
+	Name = "恶搞"
 })
 local window_Trolling = TrollingTabee:CreateSection({
-	Name = "Trolling"
+	Name = "恶搞功能"
 })
 local scriptLoaded = false
 -- Config system
@@ -914,7 +914,7 @@ end
 
 --local window_player_tab = GUI:CreateTab({ Name = "Player" })
 local window_player = GUI:CreateSection({
-	Name = "Player"
+	Name = "玩家"
 })
 --local window_esp_tab = GUI:CreateTab({ Name = "ESP" })
 local window_esp = GUI:CreateSection({
@@ -922,7 +922,7 @@ local window_esp = GUI:CreateSection({
 })
 --local window_entities_tab = GUI:CreateTab({ Name = "Entities" })
 local window_entities = GUI:CreateSection({
-	Name = "Entities"
+	Name = "Entities ESP"
 })
 --local window_roomsdoors_tab = GUI:CreateTab({ Name = "Rooms (DOORS)" })
 local window_roomsdoors = GUI:CreateSection({

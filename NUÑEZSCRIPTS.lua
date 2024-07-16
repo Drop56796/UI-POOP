@@ -713,7 +713,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	reloadList(nil)
 
 	local CONFIGTAB = GUIWindow:CreateTab({
-		Name = "Configs"
+		Name = "配置"
 	})
 	local CONFIG = CONFIGTAB:CreateSection({
 		Name = "Load"
@@ -1073,22 +1073,22 @@ oldnotificationsettings:AddButton({
 oldnotificationsettings:AddButton({
 	Name = "Test Notification",
 	Callback = function()
-		oldnormalmessage("NUÑEZ SCRIPTS v"..currentver.." [TEST]", "This is a test!", 5)
+		oldnormalmessage("test v"..currentver.." [TEST]", "This is a test!", 5)
 	end
 })
 
-local window_credits_tab = GUIWindow:CreateTab({ Name = "Credits" })
+local window_credits_tab = GUIWindow:CreateTab({ Name = "创作者" })
 local window_credits = window_credits_tab:CreateSection({
-	Name = "Credits"
+	Name = "创作"
 })
-window_credits:AddLabel({ Name = "Original V3RM post: 1200475" })
-window_credits:AddLabel({ Name = "Original by:" });window_credits:AddLabel({ Name = "Nuñez" })
-window_credits:AddLabel({ Name = "Edited by: Nuñez (DarknessVarious YT)" })
-window_credits:AddLabel({ Name = "UI Library suggestion:" });window_credits:AddLabel({ Name = "actu#2004" })
-window_credits:AddLabel({ Name = "Discord Invite: a6Ttgs2gBr" })
+window_credits:AddLabel({ Name = "原版微山:微山团队" })
+window_credits:AddLabel({ Name = "现版本:MrWhite" })
+window_credits:AddLabel({ Name = "原版作者QQ:3543896302" })
+window_credits:AddLabel({ Name = "现版本作者QQ:375664628" })
+window_credits:AddLabel({ Name = "原版作者已退网" })
 if RequestFunction then
 	window_credits:AddButton({
-		Name = "Join NUÑEZ SCRIPTS\nDiscord Server",
+		Name = "原版作者已退网不要看了",
 		Callback = function()
 			JoinDiscord("a6Ttgs2gBr")
 		end
@@ -3920,7 +3920,7 @@ end)
 
 scriptLoaded = true
 normalmessage(
-	"NUÑEZ SCRIPTS v"..currentver, "Script loaded!", 
-	"Took "..(os.time() - NUNEZSCRIPTS_START_TIME).."ms.", 
+	"微山旧版 v"..currentver, "脚本已加载!", 
+	"浪费时间"..(os.time() - NUNEZSCRIPTS_START_TIME).."ms.", 
 	5
 )

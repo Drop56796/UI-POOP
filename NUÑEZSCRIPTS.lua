@@ -1382,7 +1382,7 @@ local espdoorsbtn = window_esp:AddToggle({
 	end
 })
 buttons.espdoors = espdoorsbtn
---[[local fakeespdoorsbtn = window_esp:AddToggle({
+local fakeespdoorsbtn = window_esp:AddToggle({
 	Name = "Fake Door (Dupe) ESP",
 	Value = false,
 	Callback = function(val, oldval)
@@ -1428,7 +1428,7 @@ buttons.espdoors = espdoorsbtn
 		end
 	end
 })
-buttons.fakeespdoors = fakeespdoorsbtn--]]
+buttons.fakeespdoors = fakeespdoorsbtn
 local espkeysbtn = window_esp:AddToggle({
 	Name = "Key/Lever ESP",
 	Value = false,
